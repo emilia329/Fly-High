@@ -172,3 +172,15 @@ def datatable(y_test,pred):
     return pd.DataFrame(data,
                       index=pd.Index(['Precison', 'Recall', 'F1 Score', ], ),
                       columns=pd.Index(['Micro', 'Macro', 'Weighted'],))    
+
+def percentage(df):
+
+    ontime = len(df[df['class']==3])
+    delay = len(df[df['class']==2])
+    cancelled = len(df[df['class']==1])
+    pct_ontime = ontime/(ontime+delay+cancelled)
+    pct_delay = delay/(ontime+delay+cancelled)
+    pct_cancelled = cancelled/(ontime+delay+cancelled)
+    print("percentage of ontime flights is", pct_ontime*100)
+    print("percentage of delay flights is", pct_delay*100)
+    print("percentage of cancelled flights", pct_cancelled*100)
