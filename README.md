@@ -65,7 +65,7 @@ These are the airline in which fly form LAX to the East coast. United Airlines i
 
 Interesting enough the top delayed flight dates are in the spring season. The results of analyzing these dates with the weather data may show rain being a big factor of the delay. 
 
-![](Images/Images/LAXdelta.png)
+![](Images/LAXdelta.png)
 
 Delta Airline seems to have moe delayed than on time flights for May through August. These flights are going only to JFK as EWR only has two airline that fly through. 
 
