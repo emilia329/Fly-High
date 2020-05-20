@@ -5,7 +5,7 @@ Downloaded specific traits in
 data: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=237
 
 ## Introduction:
-In this project I created a multi classification project. Using the data downloaded from the Bureau of Transportation I have specified three states New York, New Jersey, and California. The most popular flights in the United States are between JFK, New York and LAX, California. I included EWR, New Jersey as EWR is an airport commonly used as an option for New Yorkers. 
+In this project I created a multi classification. Using the data downloaded from the Bureau of Transportation I have specified three states New York, New Jersey, and California. The most popular flights in the United States are between JFK, New York and LAX, California. I included EWR, New Jersey because EWR is an airport commonly used as an option for New Yorkers. 
 The data includes all the flights between the 3 airports EWR, JFK, LAX in 2019. 
 
 I classify a flight as on time, delay or cancelled. In the end I will be able to inform you which airline is best to travel with and which airline handles delays the best. 
@@ -20,7 +20,7 @@ The libraries used in this project includes:
 In this repo I have included a functions.py notebook in which contains all the functions used in this project. 
 
 ## Data Preproccessing:
-After importing the data I concated for all 3 airports to be in one dataframe. I created boolean columns to return true and false, this will be useful when I classify into classes.Afterwards, I created a function in which classifies flights to be delayed if their departure time is greater than 0 minutes. Anything else is ontime, and cancelled flights are specified prior. Then I gave the three classes a numerical value, 1= cancelled, 2= delayed, 3= ontime. This is essential when contructing EDAs and for modelling. 
+After importing the data I concated for all 3 airports to be in one dataframe. I created a function in which classifies flights to be delayed if their departure time is greater than 0 minutes and return boolean columns to return true and false. This will be useful when I classify into classes. Anything else is ontime, and cancelled flights are specified prior. Then I gave the three classes a numerical value, 1= cancelled, 2= delayed, 3= ontime. This is essential when contructing EDAs and for modelling. 
  
     The starter notebook is : 
      'usethisone.ipynb'
