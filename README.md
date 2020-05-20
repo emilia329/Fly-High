@@ -17,11 +17,13 @@ The libraries used in this project includes:
     - Statsmodels
     - Sklearn
     
-In this repo I have included a function notebook in whihc contains all the functions used in this project. 
+In this repo I have included a functions.py notebook in which contains all the functions used in this project. 
 
 ## Data Preproccessing:
-After importing the data I concated for all 3 airports to be in one dataframe. Afterwards, I created a function in whihc classifies flights to be delayed if their departure time is greater than 0 minutes. Anything else is ontime, and cancelled flights are specified prior. Then I gave the three classes a numerical value, 1= cancelled, 2= delayed, 3= ontime. This is essential when contructing EDAs and for modelling. 
-
+After importing the data I concated for all 3 airports to be in one dataframe. I created boolean columns to return true and false, this will be useful when I classify into classes.Afterwards, I created a function in which classifies flights to be delayed if their departure time is greater than 0 minutes. Anything else is ontime, and cancelled flights are specified prior. Then I gave the three classes a numerical value, 1= cancelled, 2= delayed, 3= ontime. This is essential when contructing EDAs and for modelling. 
+ 
+    The starter notebook is : 
+     'usethisone.ipynb'
 
 ## JFK 
 ![](Images/JFKairport_airlines.png)
@@ -71,7 +73,7 @@ Delta Airline seems to have moe delayed than on time flights for May through Aug
 
 
 # Models
-In the :
+    In the :
         'EWRModel.ipynb'
         'JFKModel.ipynb'
         'LAXModel.ipynb'
