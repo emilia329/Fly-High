@@ -1,8 +1,7 @@
 # Fly High 
 Emilia Orellana
 
-Downloaded specific traits in 
-data: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=237
+Downloaded specific traits in [Bureau of Transportation](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=237)
 
 ## Introduction:
 In this project I created a multi classification. Using the data downloaded from the Bureau of Transportation I have specified three states New York, New Jersey, and California. The most popular flights in the United States are between JFK, New York and LAX, California. I included EWR, New Jersey because EWR is an airport commonly used as an option for New Yorkers. 
