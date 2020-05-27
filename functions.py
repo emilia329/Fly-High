@@ -186,3 +186,85 @@ def percentage(df):
     print("percentage of ontime flights is", pct_ontime*100)
     print("percentage of delay flights is", pct_delay*100)
     print("percentage of cancelled flights", pct_cancelled*100)
+
+def kscores():
+    k_range = list(range(1, 12))
+    k_scores = []
+    for k in k_range:
+        knn = KNeighborsClassifier(n_neighbors=k)
+        knn.fit(X_train, y_train)
+        y_predict = knn.predict(X_test)
+        score = f1_score(y_test, y_predict, average='weighted')
+        k_scores.append(score)
+    print(k_scores)   
+    
+def kvalvisual():
+    plt.plot(range(1, 12), k_scores, color='red', linestyle='dashed', marker='o',  
+             markerfacecolor='blue', markersize=10)
+    plt.title('F1 score by K Value')  
+    plt.xlabel('K Value')  
+    plt.ylabel('F1 Score') 
+
+
+    plt.savefig('knn.png',dpi=None,bbox_inches = 'tight')
+    plt.show()
+
+    
+    # weather notebooks
+
+def season_of_date(date):
+    year = str(date.year)
+    seasons = {'spring': pd.date_range(start='21/03/'+year, end='20/06/'+year),
+               'summer': pd.date_range(start='21/06/'+year, end='22/09/'+year),
+               'autumn': pd.date_range(start='23/09/'+year, end='20/12/'+year)}
+    if date in seasons['spring']:
+        return '4'
+    if date in seasons['summer']:
+        return '3'
+    if date in seasons['autumn']:
+        return '2'
+    else:
+        return '1'
+
+def avgrain(df):
+    fig, ax = plt.subplots()
+
+    # Plot a bar-chart of gold medals as a function of country
+    ax.bar(['Winter','Autumn','Summer','Spring'],df.values.flatten(), color = 'cornflowerblue')
+
+    # Set the x-axis tick labels to the country names
+    #
+    ax.set_xlabel('Seasons')
+    # Set the y-axis label
+    ax.set_ylabel('Probability')
+    plt.yticks(np.arange(0, 1, step=.1),fontsize=12)
+    ax.set_title('Probability of Precipitation by Seasons')
+
+    #plt.savefig('graph3.png',dpi=None,bbox_inches = 'tight')
+    plt.show()
+    
+def avgtemp(df):
+    fig, ax = plt.subplots()
+
+    # Plot a bar-chart of gold medals as a function of country
+    ax.bar(['Winter','Autumn','Summer','Spring'],df.values.flatten(), color = 'khaki')
+
+    # Set the x-axis tick labels to the country names
+    #
+    ax.set_xlabel('Seasons')
+    # Set the y-axis label
+    ax.set_ylabel('Probability')
+    plt.yticks(np.arange(0, 90, step=5),fontsize=12)
+    ax.set_title('Avg Temperature by Seasons')
+
+    #plt.savefig('graph3.png',dpi=None,bbox_inches = 'tight')
+    plt.show() 
+    
+def anova(df):
+    anova_state = ols('precipProbability~season', data=df).fit()
+    anova_table = sm.stats.anova_lm(anova_state, type=2)
+    mc = MultiComparison(df['precipProbability'],df['season'])
+    mc_results = mc.tukeyhsd()
+    print(anova_table)
+    '\n'
+    print(mc_results)
