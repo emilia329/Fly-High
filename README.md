@@ -9,12 +9,12 @@ The data includes all the flights between the 3 airports EWR, JFK, LAX in 2019.
 
 I classify a flight as on time, delay or cancelled. In the end I will be able to inform you which airline is best to travel with and which airline handles delays the best. 
 
-The libraries used in this project includes:
-    - Pandas
-    - NumPy
-    - Matplotlib
-    - Statsmodels
-    - Sklearn
+    The libraries used in this project includes:
+        - Pandas
+        - NumPy
+        - Matplotlib
+        - Statsmodels
+        - Sklearn
     
 In this repo I have included a functions.py notebook in which contains all the functions used in this project. 
 
@@ -22,7 +22,7 @@ In this repo I have included a functions.py notebook in which contains all the f
 After importing the data I concated for all 3 airports to be in one dataframe. I created a function in which classifies flights to be delayed if their departure time is greater than 0 minutes and return boolean columns to return true and false. This will be useful when I classify into classes. Anything else is ontime, and cancelled flights are specified prior. Then I gave the three classes a numerical value, 1= cancelled, 2= delayed, 3= ontime. This is essential when contructing EDAs and for modelling. 
  
     The starter notebook is : 
-     'usethisone.ipynb'
+     'DataProcessing&Cleaning.ipynb'
 
 ## JFK 
 ![](Images/JFKairport_airlines.png)
