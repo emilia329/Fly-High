@@ -186,9 +186,31 @@ def percentage(df):
     print("percentage of ontime flights is", pct_ontime*100)
     print("percentage of delay flights is", pct_delay*100)
     print("percentage of cancelled flights", pct_cancelled*100)
+
+def kscores():
+    k_range = list(range(1, 12))
+    k_scores = []
+    for k in k_range:
+        knn = KNeighborsClassifier(n_neighbors=k)
+        knn.fit(X_train, y_train)
+        y_predict = knn.predict(X_test)
+        score = f1_score(y_test, y_predict, average='weighted')
+        k_scores.append(score)
+    print(k_scores)   
     
+def kvalvisual():
+    plt.plot(range(1, 12), k_scores, color='red', linestyle='dashed', marker='o',  
+             markerfacecolor='blue', markersize=10)
+    plt.title('F1 score by K Value')  
+    plt.xlabel('K Value')  
+    plt.ylabel('F1 Score') 
+
+
+    #plt.savefig('graph10.png',dpi=None,bbox_inches = 'tight')
+    plt.show()
+
     
-# weather notebooks
+    # weather notebooks
 
 def season_of_date(date):
     year = str(date.year)
